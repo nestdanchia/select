@@ -1,0 +1,68 @@
+<p>merge works!</p>
+{{arry | json }}  {{arry | json }}   {{arry| json }}   {{arry| json }}
+<!--{{ posts | json }}
+<div>
+    <h2>Posts</h2>
+    {{ posts | json }}
+</div>
+<input type="file" (input)="elegirImagen($event)">
+<button (click)="enviarFoto()">Enviar Foto</button>
+
+
+
+<form enctype="multipart/form-data" (ngSubmit)="uploadImage()">
+   <input type="file" name="image" (change)="onFileSelected($event)">
+   <button>Save Image</button>
+</form>
+-->
+<ul>
+	<li *ngFor="let entrada of entradas">
+		{{(entrada.frase)}}
+	</li>
+</ul>
+
+<div *ngIf='dataForUser11$ | async as data' >
+	<h2>Name: {{ data.name }}</h2>
+	<h2>User Name: {{ data.username }}</h2>
+	<h2>Data Email: {{ data.email }}</h2>
+</div>
+
+
+<div *ngIf='dataForUser2$ | async as data'>
+
+	<table *ngIf="data.todos">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Title</th>
+
+				<th>Completed?</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let todo of data.todos">
+			<tr>
+				<td>{{ todo.userId }}</td>
+				<td>{{ todo.title }}</td>
+
+				<td>{{ todo.completed }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<p></p>
+	<table *ngIf="data.posts">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Title</th>
+				<th>Body</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let post of data.posts">
+			<tr>
+				<td>{{ post.userId }}</td>
+				<td>{{ post.title }}</td>
+				<td>{{ post.body }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

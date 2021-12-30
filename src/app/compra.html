@@ -1,0 +1,27 @@
+
+
+const produtAgrega =
+    {
+    "id": 2,
+    "name": "aceite",
+
+  }
+
+addToList(produtAgrega);
+let productos = [
+    {
+        "id": "1",
+        "name": "vino",
+
+    },
+    {
+        "id": 2,
+        "name": "aceite",
+
+    }
+]
+function addToList (product ){
+    if (productos.some(e => e.id === product.id)) {
+        console.log('el producto ya se encuentra')
+    }
+}

@@ -1,0 +1,103 @@
+<p>rxjs works!</p>
+
+ <div *ngIf='todosForUser2$ | async as data'>
+	<table *ngIf="data.todos">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Title</th>
+				<th>Completed?</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let todo of $any( data.todos)">
+			<tr>
+				<td>{{ todo.userId }}</td>
+				<td>{{ todo.title }}</td>
+				<td>{{ todo.completed }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<h1>Seleccionaste user Name :{{userSelectedAction$ | async | json}}</h1>
+
+<div *ngIf='users$ | async as users'>
+	<select (change)="onSelected($event)">
+    <option value="">--Select a user--</option>
+    <option *ngFor="let user of users"
+            [value]="user.username">{{ user.name }}</option>
+  </select>
+</div>
+<p>Or if you prefer, {{today | date:'mediumTime'}}</p>
+<div *ngIf='dataForUser$ | async as data'>
+	<h2>Data for: {{ data.name }}</h2>
+	<table *ngIf="data.todos">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Title</th>
+
+				<th>Completed?</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let todo of data.todos">
+			<tr>
+				<td>{{ todo.userId }}</td>
+				<td>{{ todo.title }}</td>
+
+				<td>{{ todo.completed }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<p></p>
+	<table *ngIf="data.posts">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Title</th>
+				<th>Body</th>
+			</tr>
+		</thead>
+		<tbody *ngFor="let post of data.posts">
+			<tr>
+				<td>{{ post.userId }}</td>
+				<td>{{ post.title }}</td>
+				<td>{{ post.body }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<h1>Input</h1>
+<input type="text>">
+
+<h2>Div</h2>
+<div id="flatMap">
+
+</div>
+
+
+<div class="select-custom-forms">
+  <div class="select-custom-forms">
+    <select (change)="onChange($event)" [(ngModel)]="selectedValue" >
+
+      <option *ngFor="let estado of estados" [value]="estado.id">
+        {{ estado.label }}
+      </option>
+    </select>
+  </div>
+  <h1>Seleccionaste Estado :{{estadoSelectedActions$ | async | json}}</h1>
+  <h1>Selected Value :{{selectedValue}}</h1>
+<h1> <button type="button" class="btn btn-primary btn-sm" (click)="removeItemStorage('estado')">
+  Remove name local storage
+  </button></h1>
+  <form>
+    <div>
+
+  <button id="pdf"(click)="descargarPDF()">descarga pdf</button>
+      <div>
+  <button id="docx"(click)="descargarDocx()">descarga docx</button>
+  </div>
+  <div>
+  <button id="mostrar"(click)="mostrarExpediente()">Mostrar</button>
+  </div>
+  </div>
+  </form>
